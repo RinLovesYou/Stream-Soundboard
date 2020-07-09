@@ -26,7 +26,7 @@ Double click the exe and it should work
 * actually learning C# Graphical User Interfaces
 
 #### Requirements
-* Java 1.8
+* Java
 * Virtual Audio Cable
 * Voicemeeter (Optional but needed for volume control)
 
