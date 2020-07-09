@@ -4,6 +4,8 @@ A soundboard that doesn't store files.
 This soundboard is a (currently) closed source Project that lets you
 stream audio to your Virtual Audio Cable/Voicemeeter input.
 
+Currently in early Pre-Release and really messy.
+
 It supports:
 * Youtube links
 * Youtube search
