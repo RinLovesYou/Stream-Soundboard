@@ -17,7 +17,7 @@ It supports:
 It's based on [Lavaplayer](https://github.com/sedmelluq/lavaplayer "Lavaplayer").
 
 ## Installation
-Head over to [Releases](https://github.com/RinAndShizuka/Stream-Soundboard/releases) and grab the latest stable.
+Head over to [Releases](https://github.com/RinLovesYou/Stream-Soundboard/releases) and grab the latest stable.
 Double click the exe and it should work
 
 ### Planned Features
