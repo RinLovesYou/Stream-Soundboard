@@ -1,4 +1,4 @@
-# Stream-Soundboard
+# Client-Soundboard
 A soundboard that doesn't store files.
 
 This soundboard is a (currently) closed source Project that lets you
