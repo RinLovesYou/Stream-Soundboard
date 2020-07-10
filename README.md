@@ -12,7 +12,7 @@ It supports:
 * Vimeo links
 * Soundcloud links
 * Bandcamp links
-*  Direct links to files
+* Direct links to files
 
 It's based on [Lavaplayer](https://github.com/sedmelluq/lavaplayer "Lavaplayer").
 
