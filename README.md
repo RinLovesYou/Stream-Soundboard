@@ -31,6 +31,6 @@ Double click the exe and it should work
 * Voicemeeter (Optional but needed for volume control)
 
 ##### Special Thanks
-SoundPad CEO for making me pay for something that i have to manually download files to
+* SoundPad CEO for making me pay for something that i have to manually download files to
 
 
