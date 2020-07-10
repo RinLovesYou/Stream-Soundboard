@@ -6,7 +6,7 @@ stream audio to your Virtual Audio Cable/Voicemeeter input.
 
 Currently in early Pre-Release and really messy.
 
-It supports:
+## It supports:
 * Youtube links
 * Youtube search
 * Vimeo links
