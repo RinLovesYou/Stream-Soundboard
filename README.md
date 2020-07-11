@@ -23,7 +23,6 @@ Double click the exe and it should work
 ### Planned Features
 * History of played links
 * nicer UI
-* Playback of Playlists/Albums in order
 * actually learning C# Graphical User Interfaces
 
 #### Requirements
