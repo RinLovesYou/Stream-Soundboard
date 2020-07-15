@@ -23,12 +23,12 @@ Double click the exe and it should work
 ### Planned Features
 * History of played links
 * nicer UI
-* actually learning C# Graphical User Interfaces
+* actually learning JavaFX User Interfaces
 
 #### Requirements
-* Java
+* Java 8 (most definitely probably Java 8)
 * Virtual Audio Cable
-* Voicemeeter (Optional but needed for volume control)
+* Voicemeeter (Optional but needed if you wanna talk at the same time)
 
 ##### Special Thanks
 * SoundPad CEO for making me pay for something that i have to manually download files to
