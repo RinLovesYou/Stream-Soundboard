@@ -33,3 +33,7 @@ Double click the exe and it should work
 ##### Special Thanks
 * SoundPad CEO for making me pay for something that i have to manually download files to
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> remotes/origin/master
