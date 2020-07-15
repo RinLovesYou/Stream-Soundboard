@@ -32,6 +32,7 @@ I wish you luck on your journey of installing Java 8 and getting baffled by how 
 * Java 8 (most definitely probably Java 8)
 * Virtual Audio Cable
 * Voicemeeter (Optional but needed if you wanna talk at the same time)
+* Tested only on Windows but cross platform may work? you can definitely run `help.jar` in the app subfolder of the install location provided you have Java 8
 
 ##### Special Thanks
 * SoundPad CEO for making me pay for something that i have to manually download files to
