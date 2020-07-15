@@ -18,7 +18,10 @@ It's based on [Lavaplayer](https://github.com/sedmelluq/lavaplayer "Lavaplayer")
 
 ## Installation
 Head over to [Releases](https://github.com/RinLovesYou/Stream-Soundboard/releases) and grab the latest stable.
-Double click the exe and it should work
+The installer will install it for you.
+
+You may also want to build it yourself (for whatever reason)
+I wish you luck on your journey of installing Java 8 and getting baffled by how retarded JavaFX is.
 
 ### Planned Features
 * History of played links
