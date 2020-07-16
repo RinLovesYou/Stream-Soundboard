@@ -27,14 +27,16 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("primary.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Bruh.fxml"));
         primaryStage.setTitle("Soundboard");
         primaryStage.setScene(new Scene(root, 300, 275));
-        primaryStage.getIcons().add(new Image("file:/resources/logo.png"));
+        primaryStage.getIcons().add(new Image("file:"+getClass().getResource("resources/logo.png").toString()));
         primaryStage.show();
         primaryStage.getScene().getWindow().addEventFilter(WindowEvent.WINDOW_CLOSE_REQUEST, PrimaryController::closeWindowEvent);
         primaryStage.setWidth(800);
         primaryStage.setHeight(600);
+        root.getStylesheets().add(getClass().getResource("style.css").toString());
+
 
     }
 
