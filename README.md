@@ -5,6 +5,7 @@ This soundboard is a Project that lets you
 stream audio to your Virtual Audio Cable/Voicemeeter input.
 
 Currently in early Pre-Release and really messy.
+Join the [Discord](https://discord.gg/Tgf2BKD) for help
 
 ## It supports:
 * Youtube links
