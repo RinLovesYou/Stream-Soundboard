@@ -65,6 +65,19 @@
     </repositories>
 
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.jaudiolibs/jnajack -->
+        <dependency>
+            <groupId>org.jaudiolibs</groupId>
+            <artifactId>jnajack</artifactId>
+            <version>1.4.0</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.jaudiolibs/audioservers-jack -->
+        <dependency>
+            <groupId>org.jaudiolibs</groupId>
+            <artifactId>audioservers-jack</artifactId>
+            <version>1.2.0</version>
+        </dependency>
+
         <dependency>
             <groupId>commons-lang</groupId>
             <artifactId>commons-lang</artifactId>

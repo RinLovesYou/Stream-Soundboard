@@ -4,6 +4,12 @@ import com.sedmelluq.discord.lavaplayer.player.AudioPlayer;
 import com.sedmelluq.discord.lavaplayer.tools.FriendlyException;
 import com.sedmelluq.discord.lavaplayer.track.AudioPlaylist;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
+import javafx.application.Platform;
+import javafx.scene.control.ProgressBar;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+
+import javax.swing.*;
 
 public class AudioLoadResultHandler implements com.sedmelluq.discord.lavaplayer.player.AudioLoadResultHandler {
     AudioPlayer player = null;
@@ -23,6 +29,8 @@ public class AudioLoadResultHandler implements com.sedmelluq.discord.lavaplayer.
         }
 
     }
+
+
 
     @Override
     public void playlistLoaded(AudioPlaylist playlist) {
@@ -53,6 +61,22 @@ public class AudioLoadResultHandler implements com.sedmelluq.discord.lavaplayer.
             thread.join();
         } catch (InterruptedException ignored) {
 
+        }
+    }
+
+    public static String formatTiming(long timing, long maximum) {
+        timing = Math.min(timing, maximum) / 1000;
+
+        long seconds = timing % 60;
+        timing /= 60;
+        long minutes = timing % 60;
+        timing /= 60;
+        long hours = timing;
+
+        if (maximum >= 3600000L) {
+            return String.format("%d:%02d:%02d", hours, minutes, seconds);
+        } else {
+            return String.format("%d:%02d", minutes, seconds);
         }
     }
 }

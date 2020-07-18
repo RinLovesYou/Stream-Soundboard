@@ -2,6 +2,9 @@ package com.rin.soundboard;
 
 
 
+import com.sun.deploy.uitoolkit.impl.fx.HostServicesFactory;
+import com.sun.javafx.application.HostServicesDelegate;
+import javafx.animation.FillTransition;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,8 +12,18 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Stop;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import org.jaudiolibs.audioservers.AudioConfiguration;
+import org.jaudiolibs.audioservers.AudioServerProvider;
+import org.jaudiolibs.audioservers.ext.Device;
+import org.jaudiolibs.audioservers.jack.JackAudioServer;
+import org.jaudiolibs.audioservers.jack.JackAudioServerProvider;
+import org.jaudiolibs.jnajack.JackClient;
+import org.jaudiolibs.jnajack.lowlevel.JackLibrary;
+import org.jaudiolibs.jnajack.util.SimpleAudioClient;
 
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Line;
@@ -18,24 +31,24 @@ import javax.sound.sampled.Mixer;
 import javax.sound.sampled.SourceDataLine;
 import java.awt.*;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.*;
 import java.util.List;
-import java.util.Optional;
 
 public class Main extends Application {
+
+    public HostServicesDelegate hostServices = HostServicesFactory.getInstance(this);
 
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("Bruh.fxml"));
+        AudioEventAdapter.bruheee = hostServices;
+        primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("logo.png")));
         primaryStage.setTitle("Soundboard");
-        primaryStage.setScene(new Scene(root, 300, 275));
-        primaryStage.getIcons().add(new Image("file:"+getClass().getResource("resources/logo.png").toString()));
+        primaryStage.setScene(new Scene(root));
         primaryStage.show();
         primaryStage.getScene().getWindow().addEventFilter(WindowEvent.WINDOW_CLOSE_REQUEST, PrimaryController::closeWindowEvent);
-        primaryStage.setWidth(800);
-        primaryStage.setHeight(600);
         root.getStylesheets().add(getClass().getResource("style.css").toString());
+
 
 
     }
@@ -43,6 +56,8 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
+
+
         launch(args);
     }
 

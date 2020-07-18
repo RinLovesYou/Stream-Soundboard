@@ -90,7 +90,7 @@ public class PrimaryController {
                     public void run() {
                         try {
                             demo(textbox.getText(), getMixer(comboBox.getValue()), this);
-                        } catch (LineUnavailableException | IOException e) {
+                        } catch (LineUnavailableException e) {
                             e.printStackTrace();
                         }
                     }

@@ -5,13 +5,23 @@
 }
 .button:hover{
 -fx-background-color : #9b59b6;
-transition: width 2s;
 }
 .button:pressed
 {
 -fx-background-color : #9b59b6;
-transition: width 2s;
 }
+.progress-bar
+{
+}
+
+.progress-bar > .bar {
+  -fx-background-color: #e74c3c;
+  -fx-background-insets: 6 3 6 3;
+}
+.progress-bar > .track {
+    -fx-background-color: #1e1e1e;
+}
+
 
 .scroll-pane {
     -fx-background-color: #02030A;
@@ -37,6 +47,9 @@ transition: width 2s;
 .scroll-bar:vertical .thumb {
     -fx-background-color: #10165F;
     -fx-background-radius: 5em;
+}
+.image-view {
+    -fx-effect: dropshadow(gaussian, #1e1e1e, 5, 30, 0, 0);
 }
 
 .scroll-pane > .corner {

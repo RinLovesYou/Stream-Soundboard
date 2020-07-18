@@ -1,11 +1,16 @@
 package com.rin.soundboard;
 
 import com.sedmelluq.discord.lavaplayer.player.AudioPlayer;
+import com.sedmelluq.discord.lavaplayer.player.event.AudioEvent;
 import com.sedmelluq.discord.lavaplayer.player.event.AudioEventAdapter;
+import com.sedmelluq.discord.lavaplayer.player.event.AudioEventListener;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrackEndReason;
+import javafx.application.Platform;
+import javafx.scene.image.Image;
 
 
+import java.util.Objects;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
@@ -38,6 +43,7 @@ public class MusicPlayer extends AudioEventAdapter {
             System.out.println("OFFERING");
             queue.offer(track);
         }
+
     }
 
     public BlockingQueue getQueue() {
