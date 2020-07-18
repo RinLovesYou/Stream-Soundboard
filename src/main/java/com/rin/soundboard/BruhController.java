@@ -16,11 +16,10 @@ import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Hyperlink;
-import javafx.scene.control.Label;
-import javafx.scene.control.ProgressBar;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import org.apache.commons.lang.StringUtils;
@@ -89,39 +88,51 @@ public class BruhController {
     public static ProgressBar BAR;
     @FXML
     private Hyperlink playing;
+
     public static Hyperlink PLAYINGRN;
 
-
-
     @FXML
+    private TextField quickplay;
+
     public void initialize(){
         System.out.println(thumbnail);
         YTTHUMBNAIL = thumbnail;
         DURATION = durationNum;
         BAR = progressbar;
         PLAYINGRN = playing;
-        player.addListener(new AudioEventAdapter(player));
+        player.addListener(new AudioEventAdapterLol(player, musicManager));
 
     }
 
     @FXML
-    void handleClicks(ActionEvent event) {
-        if(yeah == null) {
-            if (event.getSource().equals(btnOrders)) {
-                yeah = new Thread() {
-                    @Override
-                    public void run() {
-                        try {
-                            play("https://www.youtube.com/watch?v=fpG3BPNQepY", getMixer(getMixers().get(0)), this);
-                        } catch (LineUnavailableException e) {
-                            e.printStackTrace();
+    void qpkeyPressed(KeyEvent event) {
+        if (event.getCode().equals(KeyCode.ENTER)) {
+            if (yeah == null) {
+                    yeah = new Thread() {
+                        @Override
+                        public void run() {
+                            try {
+                                play(quickplay.getText(), getMixer(getMixers().get(0)), this);
+                            } catch (LineUnavailableException e) {
+                                e.printStackTrace();
+                            }
                         }
-                    }
-                };
-                yeah.start();
+                    };
+                    yeah.start();
+            }
+            else if (quickplay.getText().startsWith("https://") || quickplay.getText().startsWith("http://")) {
+                System.out.println("loading in mainthread");
+                manager.loadItem(quickplay.getText(), handler);
 
+            } else {
+                System.out.println("loading surch in mainthread");
+                manager.loadItem("ytsearch: " + quickplay.getText(), handler);
             }
         }
+    }
+
+    @FXML
+    void handleClicks(ActionEvent event) {
     }
 
     static Thread yeah;

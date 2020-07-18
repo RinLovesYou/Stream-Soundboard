@@ -41,7 +41,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("Bruh.fxml"));
-        AudioEventAdapter.bruheee = hostServices;
+        AudioEventAdapterLol.bruheee = hostServices;
         primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("logo.png")));
         primaryStage.setTitle("Soundboard");
         primaryStage.setScene(new Scene(root));
