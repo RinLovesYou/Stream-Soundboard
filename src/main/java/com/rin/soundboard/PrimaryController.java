@@ -24,7 +24,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.stage.WindowEvent;
+
 
 import javax.swing.*;
 
@@ -41,16 +44,25 @@ public class PrimaryController {
 
 
     @FXML
+    private Font x1;
+
+    @FXML
+    private Color x2;
+
+    @FXML
     private ComboBox<String> comboBox;
 
     @FXML
     private TextField textbox;
 
     @FXML
-    private VBox window;
+    private Slider slider;
 
     @FXML
-    private Slider slider;
+    private Font x11;
+
+    @FXML
+    private Color x21;
 
     private AudioTrack lastTrack = null;
 
@@ -68,7 +80,7 @@ public class PrimaryController {
     }
 
     @FXML
-    void keyPressed(KeyEvent event) throws LineUnavailableException, IOException {
+    void keyPressed(KeyEvent event) {
         if (event.getCode().equals(KeyCode.ENTER))
         {
             System.out.println("run");
@@ -78,22 +90,20 @@ public class PrimaryController {
                     public void run() {
                         try {
                             demo(textbox.getText(), getMixer(comboBox.getValue()), this);
-                        } catch (LineUnavailableException | IOException e) {
+                        } catch (LineUnavailableException e) {
                             e.printStackTrace();
                         }
                     }
                 };
                 bruh.start();
             }
-            else {
-                if (textbox.getText().startsWith("https://")) {
-                    System.out.println("loading in mainthread");
-                    manager.loadItem(textbox.getText(), handler);
+            else if (textbox.getText().startsWith("https://")) {
+                System.out.println("loading in mainthread");
+                manager.loadItem(textbox.getText(), handler);
 
-                } else {
-                    System.out.println("loading surch in mainthread");
-                    manager.loadItem( "ytsearch: " + textbox.getText(), handler);
-                }
+            } else {
+                System.out.println("loading surch in mainthread");
+                manager.loadItem("ytsearch: " + textbox.getText(), handler);
             }
 
         }
@@ -174,7 +184,7 @@ public class PrimaryController {
     }
     int chunkSize;
 
-    public void demo(String input, Mixer mixer, Thread thread) throws LineUnavailableException, IOException {
+    public void demo(String input, Mixer mixer, Thread thread) throws LineUnavailableException {
 
 
         AudioSourceManagers.registerRemoteSources(manager);
