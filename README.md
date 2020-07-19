@@ -21,7 +21,7 @@ It's based on [Lavaplayer](https://github.com/sedmelluq/lavaplayer "Lavaplayer")
 Head over to [Releases](https://github.com/RinLovesYou/Stream-Soundboard/releases) and grab the latest stable.
 The installer will install it for you.
 
-Make sure Voicemeeter is installed, Here is a small [Guide](https://media.discordapp.net/attachments/733272631268343860/734329691988557824/le_image.png?width=1539&height=866) on how to set it up correctly (also found on my [discord](https://discord.gg/Tgf2BKD) ;)
+Make sure Voicemeeter Banana is installed, Here is a small [Guide](https://media.discordapp.net/attachments/733272631268343860/734329691988557824/le_image.png?width=1539&height=866) on how to set it up correctly (also found on my [discord](https://discord.gg/Tgf2BKD) ;)
 
 In the soundboard, the output will automatically be set to Voicemeeter. If not, the dropdown to choose is below the Skip and Stop buttons.
 
@@ -38,7 +38,7 @@ I wish you luck on your journey of installing Java 8 and getting baffled by how 
 #### Requirements
 * [Java 8](https://www.oracle.com/java/technologies/javase-jre8-downloads.html) (most definitely probably Java 8) Most people probably have this version installed anyways,
 to check which version you have type `java -version` in the command line (Windows key + R, type cmd and press enter)
-* [Virtual Audio Cable](https://www.vb-audio.com/Cable/index.htm) or [Voicemeeter](https://www.vb-audio.com/Voicemeeter/banana.htm) I recommend Voicemeeter.
+* [Virtual Audio Cable](https://www.vb-audio.com/Cable/index.htm) or [Voicemeeter](https://www.vb-audio.com/Voicemeeter/banana.htm) I recommend Voicemeeter Banana.
 * Tested only on Windows but cross platform may work? you can definitely run `help.jar` in the app subfolder of the install location provided you have Java 8
 
 ##### Special Thanks
