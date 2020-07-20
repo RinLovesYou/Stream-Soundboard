@@ -16,6 +16,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.Stop;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import org.apache.http.impl.client.HttpClientBuilder;
 import org.jaudiolibs.audioservers.AudioConfiguration;
 import org.jaudiolibs.audioservers.AudioServerProvider;
 import org.jaudiolibs.audioservers.ext.Device;
@@ -24,6 +25,7 @@ import org.jaudiolibs.audioservers.jack.JackAudioServerProvider;
 import org.jaudiolibs.jnajack.JackClient;
 import org.jaudiolibs.jnajack.lowlevel.JackLibrary;
 import org.jaudiolibs.jnajack.util.SimpleAudioClient;
+import sun.net.www.http.HttpClient;
 
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Line;
@@ -48,7 +50,6 @@ public class Main extends Application {
         primaryStage.show();
         primaryStage.getScene().getWindow().addEventFilter(WindowEvent.WINDOW_CLOSE_REQUEST, PrimaryController::closeWindowEvent);
         root.getStylesheets().add(getClass().getResource("style.css").toString());
-
 
 
     }

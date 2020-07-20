@@ -12,8 +12,8 @@ import javafx.scene.image.ImageView;
 import javax.swing.*;
 
 public class AudioLoadResultHandler implements com.sedmelluq.discord.lavaplayer.player.AudioLoadResultHandler {
-    AudioPlayer player = null;
-    MusicManager manager = null;
+    AudioPlayer player;
+    MusicManager manager;
     Thread thread ;
     public AudioLoadResultHandler(AudioPlayer player, MusicManager manager) {
         this.player = player;
@@ -41,7 +41,7 @@ public class AudioLoadResultHandler implements com.sedmelluq.discord.lavaplayer.
                 manager.scheduler.queue(playlist.getTracks().get(0));
             }
         } else {
-            playlist.getTracks().stream().forEach(AudioTrack -> manager.scheduler.queue(AudioTrack));
+            playlist.getTracks().forEach(AudioTrack -> manager.scheduler.queue(AudioTrack));
         }
     }
 
@@ -61,22 +61,6 @@ public class AudioLoadResultHandler implements com.sedmelluq.discord.lavaplayer.
             thread.join();
         } catch (InterruptedException ignored) {
 
-        }
-    }
-
-    public static String formatTiming(long timing, long maximum) {
-        timing = Math.min(timing, maximum) / 1000;
-
-        long seconds = timing % 60;
-        timing /= 60;
-        long minutes = timing % 60;
-        timing /= 60;
-        long hours = timing;
-
-        if (maximum >= 3600000L) {
-            return String.format("%d:%02d:%02d", hours, minutes, seconds);
-        } else {
-            return String.format("%d:%02d", minutes, seconds);
         }
     }
 }

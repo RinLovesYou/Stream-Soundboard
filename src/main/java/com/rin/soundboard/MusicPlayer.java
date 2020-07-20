@@ -41,12 +41,15 @@ public class MusicPlayer extends AudioEventAdapter {
         // track goes to the queue instead.
         if (!player.startTrack(track, true)) {
             System.out.println("OFFERING");
+            System.out.println(queue.size());
+            System.out.println(BruhController.QITEMS.getText());
+            Platform.runLater(() ->BruhController.QITEMS.setText(String.valueOf(queue.size())));
             queue.offer(track);
         }
 
     }
 
-    public BlockingQueue getQueue() {
+    public BlockingQueue<AudioTrack> getQueue() {
         return queue;
     }
 
@@ -57,6 +60,7 @@ public class MusicPlayer extends AudioEventAdapter {
         // Start the next track, regardless of if something is already playing or not. In case queue was empty, we are
         // giving null to startTrack, which is a valid argument and will simply stop the player.
         player.startTrack(queue.poll(), true);
+        Platform.runLater(() ->BruhController.QITEMS.setText(String.valueOf(queue.size())));
         System.out.println("STARTING" + getQueue());
 
     }

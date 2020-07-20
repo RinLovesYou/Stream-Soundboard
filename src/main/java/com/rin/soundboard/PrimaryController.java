@@ -111,14 +111,7 @@ public class PrimaryController {
 
     public static void closeWindowEvent(WindowEvent event) {
         System.out.println("Window close request ...");
-        if (player.getPlayingTrack() != null) {
-            player.stopTrack();
-            player.destroy();
-
-        }
-        if(bruh != null) {
-            bruh.stop();
-        }
+        System.exit(0);
 
     }
     @FXML
@@ -214,7 +207,7 @@ public class PrimaryController {
 
         byte[] buffer = new byte[COMMON_PCM_S16_BE.maximumChunkSize()];
 
-        SwingWorker woker = new SwingWorker() {
+        SwingWorker<Object, Object> woker = new SwingWorker<Object, Object>() {
             @Override
             protected Object doInBackground() throws Exception {
                 while ((chunkSize = stream.read(buffer)) >= 0) {

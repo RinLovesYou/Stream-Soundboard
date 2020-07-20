@@ -5,33 +5,22 @@ import com.sedmelluq.discord.lavaplayer.format.AudioPlayerInputStream;
 import com.sedmelluq.discord.lavaplayer.player.AudioPlayer;
 import com.sedmelluq.discord.lavaplayer.player.AudioPlayerManager;
 import com.sedmelluq.discord.lavaplayer.player.DefaultAudioPlayerManager;
-import com.sedmelluq.discord.lavaplayer.player.event.*;
 import com.sedmelluq.discord.lavaplayer.source.AudioSourceManagers;
-import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
-import com.sedmelluq.discord.lavaplayer.track.AudioTrackState;
-import javafx.application.Platform;
-import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import org.apache.commons.lang.StringUtils;
-import org.jaudiolibs.jnajack.Jack;
-import org.jaudiolibs.jnajack.JackClient;
-import org.jaudiolibs.jnajack.util.SimpleAudioClient;
 
 import javax.sound.sampled.*;
 import javax.swing.*;
 
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -55,6 +44,14 @@ public class BruhController {
 
     @FXML
     public Button btnPackages;
+
+    @FXML
+    private Label queueitems;
+    @FXML
+    private Slider volumeSlider;
+
+
+    public static Label QITEMS;
 
     @FXML
     public Button btnSettings;
@@ -92,16 +89,41 @@ public class BruhController {
     public static Hyperlink PLAYINGRN;
 
     @FXML
+    private ComboBox<String> mixerBox;
+
+    @FXML
+    private Button btnPause;
+
+    @FXML
+    private Button btnStop;
+
+    @FXML
+    private Button btnSkip;
+
+    @FXML
     private TextField quickplay;
 
     public void initialize(){
-        System.out.println(thumbnail);
+        ObservableList<String> list = FXCollections.observableArrayList(getMixers());
+        mixerBox.setValue("VoiceMeeter Input (VB-Audio VoiceMeeter VAIO)");
+        mixerBox.setItems(list);
         YTTHUMBNAIL = thumbnail;
         DURATION = durationNum;
         BAR = progressbar;
         PLAYINGRN = playing;
+        QITEMS = queueitems;
         player.addListener(new AudioEventAdapterLol(player, musicManager));
 
+    }
+
+    @FXML
+    void dragEvent(MouseEvent event) {
+        player.setVolume((int)volumeSlider.getValue());
+    }
+
+    @FXML
+    void clickEvent(MouseEvent event) {
+        player.setVolume((int)volumeSlider.getValue());
     }
 
     @FXML
@@ -112,7 +134,9 @@ public class BruhController {
                         @Override
                         public void run() {
                             try {
-                                play(quickplay.getText(), getMixer(getMixers().get(0)), this);
+                                if(mixerBox.getValue() != null)  {
+                                    play(quickplay.getText(), getMixer(mixerBox.getValue()), this);
+                                }
                             } catch (LineUnavailableException e) {
                                 e.printStackTrace();
                             }
@@ -133,6 +157,22 @@ public class BruhController {
 
     @FXML
     void handleClicks(ActionEvent event) {
+        if(event.getSource().equals(btnSkip)) {
+            if(!musicManager.scheduler.getQueue().isEmpty()) {
+                player.stopTrack();
+                musicManager.scheduler.nextTrack();
+            }
+        } else if(event.getSource().equals(btnStop)) {
+            if(player.getPlayingTrack() != null) {
+                player.stopTrack();
+                player.destroy();
+            }
+        } else if(event.getSource().equals(btnPause)) {
+            if(yeah.isAlive()) {
+                System.out.println("i'm trying dude");
+                player.setPaused(!player.isPaused());
+            }
+        }
     }
 
     static Thread yeah;
@@ -160,6 +200,10 @@ public class BruhController {
             manager.loadItem( "ytsearch: " + input, handler);
         }
 
+        //btnPause
+        //btnStop
+        //btnSkip
+
 
         AudioDataFormat format = manager.getConfiguration().getOutputFormat();
         AudioInputStream stream = AudioPlayerInputStream.createStream(player, format, 10000L, true);
@@ -172,7 +216,7 @@ public class BruhController {
 
         byte[] buffer = new byte[COMMON_PCM_S16_BE.maximumChunkSize()];
 
-        SwingWorker woker = new SwingWorker() {
+        SwingWorker<Object, Object> woker = new SwingWorker<Object, Object>() {
             @Override
             protected Object doInBackground() throws Exception {
                 while ((chunkSize = stream.read(buffer)) >= 0) {
