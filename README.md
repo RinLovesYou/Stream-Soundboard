@@ -1,6 +1,4 @@
-# Client-Soundboard [![forthebadge](https://forthebadge.com/images/badges/certified-elijah-wood.svg)](https://forthebadge.com)[![forthebadge](https://forthebadge.com/images/badges/mom-made-pizza-rolls.svg)](https://forthebadge.com)
-
-A soundboard that doesn't store files.
+# Client-Soundboard [![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/K3K61YCS7)
 
 This soundboard is a Project that lets you
 stream audio to your Virtual Audio Cable/Voicemeeter input.
@@ -45,4 +43,3 @@ to check which version you have type `java -version` in the command line (Window
 ##### Special Thanks
 * SoundPad CEO for making me pay for something that i have to manually download files to
 
-[![forthebadge](https://forthebadge.com/images/badges/made-with-crayons.svg)](https://forthebadge.com)
