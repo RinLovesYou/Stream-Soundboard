@@ -1,9 +1,6 @@
-# Client-Soundboard
-A soundboard that doesn't store files.
+# Client-Soundboard [![forthebadge](https://forthebadge.com/images/badges/certified-elijah-wood.svg)](https://forthebadge.com)[![forthebadge](https://forthebadge.com/images/badges/mom-made-pizza-rolls.svg)](https://forthebadge.com)
 
-[![forthebadge](https://forthebadge.com/images/badges/designed-in-etch-a-sketch.svg)](https://forthebadge.com)
-[![forthebadge](https://forthebadge.com/images/badges/certified-elijah-wood.svg)](https://forthebadge.com)
-[![forthebadge](https://forthebadge.com/images/badges/mom-made-pizza-rolls.svg)](https://forthebadge.com)
+A soundboard that doesn't store files.
 
 This soundboard is a Project that lets you
 stream audio to your Virtual Audio Cable/Voicemeeter input.
