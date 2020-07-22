@@ -31,14 +31,13 @@ I wish you luck on your journey of installing Java 8 and getting baffled by how 
 
 ### Planned Features
 * History of played links
-* nicer UI
-* actually learning JavaFX User Interfaces
+* More detailed UI
 
 #### Requirements
 * [Java 8](https://www.oracle.com/java/technologies/javase-jre8-downloads.html) (most definitely probably Java 8) Most people probably have this version installed anyways,
 to check which version you have type `java -version` in the command line (Windows key + R, type cmd and press enter)
 * [Virtual Audio Cable](https://www.vb-audio.com/Cable/index.htm) or [Voicemeeter](https://www.vb-audio.com/Voicemeeter/banana.htm) I recommend Voicemeeter Banana.
-* Tested only on Windows but cross platform may work? you can definitely run `help.jar` in the app subfolder of the install location provided you have Java 8
+* Currently only on Windows. I will look into cross platform distribution
 
 ##### Special Thanks
 * SoundPad CEO for making me pay for something that i have to manually download files to
