@@ -1,37 +1,21 @@
 package com.rin.soundboard;
 
-
-
 import com.sun.deploy.uitoolkit.impl.fx.HostServicesFactory;
 import com.sun.javafx.application.HostServicesDelegate;
-import javafx.animation.FillTransition;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
-import javafx.scene.paint.Color;
-import javafx.scene.paint.Stop;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
-import org.jaudiolibs.audioservers.AudioConfiguration;
-import org.jaudiolibs.audioservers.AudioServerProvider;
-import org.jaudiolibs.audioservers.ext.Device;
-import org.jaudiolibs.audioservers.jack.JackAudioServer;
-import org.jaudiolibs.audioservers.jack.JackAudioServerProvider;
-import org.jaudiolibs.jnajack.JackClient;
-import org.jaudiolibs.jnajack.lowlevel.JackLibrary;
-import org.jaudiolibs.jnajack.util.SimpleAudioClient;
 
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Line;
 import javax.sound.sampled.Mixer;
 import javax.sound.sampled.SourceDataLine;
-import java.awt.*;
-import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Main extends Application {
@@ -46,9 +30,8 @@ public class Main extends Application {
         primaryStage.setTitle("Soundboard");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
-        primaryStage.getScene().getWindow().addEventFilter(WindowEvent.WINDOW_CLOSE_REQUEST, PrimaryController::closeWindowEvent);
+        primaryStage.getScene().getWindow().addEventFilter(WindowEvent.WINDOW_CLOSE_REQUEST, BruhController::closeWindowEvent);
         root.getStylesheets().add(getClass().getResource("style.css").toString());
-
 
 
     }

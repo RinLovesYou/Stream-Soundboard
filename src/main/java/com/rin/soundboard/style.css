@@ -38,18 +38,30 @@
 
 .scroll-bar:horizontal .track,
 .scroll-bar:vertical .track{
-    -fx-background-color: transparent;
+    -fx-background-color: #1e1e1e;
     -fx-border-color: transparent;
-    -fx-background-radius: 0em;
+    -fx-background-radius: 0.2em;
+}
+
+.combobox {
+    -fx-background-color : #1e1e1e;
+}
+
+.combobox > .cell {
+    -fx-text-fill: white;
 }
 
 .scroll-bar:horizontal .thumb,
 .scroll-bar:vertical .thumb {
     -fx-background-color: #10165F;
-    -fx-background-radius: 5em;
+    -fx-background-radius: 0.5em;
 }
 .image-view {
     -fx-effect: dropshadow(gaussian, #1e1e1e, 5, 30, 0, 0);
+}
+
+.slider {
+    -fx-background-color:  #02030A;
 }
 
 .scroll-pane > .corner {
