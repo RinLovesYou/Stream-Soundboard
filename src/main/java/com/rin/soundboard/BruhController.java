@@ -6,6 +6,7 @@ import com.sedmelluq.discord.lavaplayer.player.AudioPlayer;
 import com.sedmelluq.discord.lavaplayer.player.AudioPlayerManager;
 import com.sedmelluq.discord.lavaplayer.player.DefaultAudioPlayerManager;
 import com.sedmelluq.discord.lavaplayer.source.AudioSourceManagers;
+import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -17,13 +18,18 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.stage.WindowEvent;
 
 import javax.sound.sampled.*;
 import javax.swing.*;
-
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.BlockingQueue;
 
 import static com.sedmelluq.discord.lavaplayer.format.StandardAudioDataFormats.COMMON_PCM_S16_BE;
 
@@ -112,7 +118,13 @@ public class BruhController {
         BAR = progressbar;
         PLAYINGRN = playing;
         QITEMS = queueitems;
-        player.addListener(new AudioEventAdapterLol(player, musicManager));
+        player.addListener(new AudioEventAdapterLol(musicManager));
+
+    }
+
+    public static void closeWindowEvent(WindowEvent event) {
+        System.out.println("Window close request ...");
+        System.exit(0);
 
     }
 
@@ -155,6 +167,9 @@ public class BruhController {
         }
     }
 
+    private AudioTrack lastTrack;
+    private long position;
+
     @FXML
     void handleClicks(ActionEvent event) {
         if(event.getSource().equals(btnSkip)) {
@@ -166,11 +181,27 @@ public class BruhController {
             if(player.getPlayingTrack() != null) {
                 player.stopTrack();
                 player.destroy();
+                musicManager.scheduler.getQueue().clear();
             }
         } else if(event.getSource().equals(btnPause)) {
             if(yeah.isAlive()) {
-                System.out.println("i'm trying dude");
-                player.setPaused(!player.isPaused());
+                switch (btnPause.getText()) {
+                    case "Pause" : {
+                        lastTrack = player.getPlayingTrack();
+                        position = player.getPlayingTrack().getPosition();
+                        player.stopTrack();
+                        btnPause.setText("Play");
+                        break;
+                    }
+                    case "Play" : {
+                        BlockingQueue<AudioTrack> oldQueue = musicManager.scheduler.getQueue();
+                        musicManager.scheduler.getQueue().clear();
+                        player.playTrack(lastTrack);
+                        musicManager.scheduler.getQueue().addAll(oldQueue);
+                        btnPause.setText("Pause");
+                    }
+
+                }
             }
         }
     }
@@ -195,7 +226,21 @@ public class BruhController {
             System.out.println("loading");
             manager.loadItem(input, handler);
 
-        } else {
+        } else if(input.startsWith("tts ")) {
+            try {
+                URL url = new URL("https://ttsmp3.com/makemp3_new.php");
+                URLConnection con = url.openConnection();
+                HttpURLConnection http = (HttpURLConnection)con;
+                http.setRequestMethod("POST"); // PUT is another valid option
+                http.setRequestProperty("Content-type", "application/x-www-form-urlunencoded");
+                http.setDoOutput(true);
+                System.out.println(http.getResponseMessage());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+        else {
             System.out.println("loading surch");
             manager.loadItem( "ytsearch: " + input, handler);
         }

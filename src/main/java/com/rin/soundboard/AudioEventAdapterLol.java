@@ -6,7 +6,6 @@ import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrackEndReason;
 import com.sun.javafx.application.HostServicesDelegate;
 import javafx.application.Platform;
-import javafx.concurrent.Task;
 import javafx.scene.image.Image;
 
 import java.util.concurrent.Executors;
@@ -17,12 +16,9 @@ import java.util.concurrent.atomic.AtomicReference;
 import static com.rin.soundboard.BruhController.*;
 
 public class AudioEventAdapterLol extends AudioEventAdapter {
-    private AudioPlayer player;
-    public static Task<Void> task;
     public static HostServicesDelegate bruheee;
     MusicManager manager;
-    public AudioEventAdapterLol(AudioPlayer player, MusicManager manager) {
-        this.player = player;
+    public AudioEventAdapterLol(MusicManager manager) {
         this.manager = manager;
     }
 
