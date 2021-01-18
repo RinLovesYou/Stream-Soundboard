@@ -42,5 +42,7 @@ to check which version you have type `java -version` in the command line (Window
 ##### Special Thanks
 * SoundPad CEO for making me pay for something that i have to manually download files to
 
+![screenshot](https://cdn.discordapp.com/attachments/738116823035150356/800602920055865354/unknown.png)
+
 [![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/K3K61YCS7)
 
