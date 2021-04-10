@@ -4,7 +4,7 @@ This soundboard is a Project that lets you
 stream audio to your Virtual Audio Cable/Voicemeeter input.
 
 Currently in early Pre-Release and really messy.
-Join the [Discord](https://discord.gg/Tgf2BKD) for help
+Join the [Discord](https://discord.gg/JMJhyVNkgT) for help
 
 ## It supports:
 * Youtube links
@@ -20,7 +20,7 @@ It's based on [Lavaplayer](https://github.com/sedmelluq/lavaplayer "Lavaplayer")
 Head over to [Releases](https://github.com/RinLovesYou/Stream-Soundboard/releases) and grab the latest stable.
 The installer will install it for you.
 
-Make sure Voicemeeter Banana is installed, Here is a small [Guide](https://media.discordapp.net/attachments/733272631268343860/734329691988557824/le_image.png?width=1539&height=866) on how to set it up correctly (also found on my [discord](https://discord.gg/Tgf2BKD) ;)
+Make sure Voicemeeter Banana is installed, Here is a small [Guide](https://media.discordapp.net/attachments/733272631268343860/734329691988557824/le_image.png?width=1539&height=866) on how to set it up correctly (also found on my [discord](https://discord.gg/JMJhyVNkgT) ;)
 
 In the soundboard, the output will automatically be set to Voicemeeter. If not, the dropdown to choose is below the Skip and Stop buttons.
 
